@@ -1,0 +1,15 @@
+---
+interface Props {
+  date: Date;
+}
+
+const { date } = Astro.props;
+
+function formatDate(date: Date) {
+  return `${date.getFullYear()} • ${String(date.getMonth() + 1).padStart(2, '0')}`;
+}
+---
+
+<time datetime={date.toISOString()} class="font-mono text-sm text-white/30">
+  {formatDate(date)}
+</time>

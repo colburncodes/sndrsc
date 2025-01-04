@@ -1,0 +1,38 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Container from '../components/ui/Container.astro';
+import PostHeader from '../components/blog/PostHeader.astro';
+import PostFooter from '../components/blog/PostFooter.astro';
+
+type Props = CollectionEntry<'blog'>['data'];
+const { title, description, pubDate, updatedDate } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body>
+    <Header />
+    <main class="pt-24 pb-16">
+      <article class="animate-fade-up">
+        <Container>
+          <PostHeader 
+            title={title} 
+            description={description}
+            pubDate={pubDate}
+            updatedDate={updatedDate}
+          />
+          
+          <div class="prose prose-invert prose-quoteless max-w-none">
+            <slot />
+          </div>
+
+          <PostFooter />
+        </Container>
+      </article>
+    </main>
+  </body>
+</html>

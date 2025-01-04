@@ -1,0 +1,72 @@
+---
+import TimelineItem from './TimelineItem.astro';
+
+const experience = [
+  {
+    title: "Senior Software Engineer",
+    company: "New Balance",
+    period: { start: "2023", end: "Present" },
+    description: "Building distributed checkout systems",
+    highlights: [
+      "Designed and implemented Splunk dashboards for checkout and payment monitoring, enabling real-time insights and proactive issue detection",
+      "Enhanced Buy Online, Pickup In-Store (BOPIS) functionality to improve omnichannel shopping experience",
+      "Developed custom alert systems for payment methods and checkout processes to ensure transaction reliability"
+    ],
+    technologies: ["Splunk", "JavaScript", "Salesforce", "Emarsys"]
+  },
+  {
+    title: "Frontend Engineer",
+    company: "Mu Methods",
+    period: { start: "2023", end: "2023" },
+    description: "Building identity infrastructure for blockchain",
+    highlights: [
+      "Developed reusable component library using React.js, Styled Components, and Bootstrap 5",
+      "Implemented comprehensive test coverage using Jest and Vitest for automated testing",
+      "Created and maintained component design system documentation using Storybook"
+    ],
+    technologies: ["React", "Styled Components", "Jest", "Storybook", "Bootstrap"]
+  },
+  {
+    title: "Software Engineer",
+    company: "Vantage Credit Union",
+    period: { start: "2022", end: "2023" },
+    description: "Core application development and automation",
+    highlights: [
+      "Developed automation scripts for load testing scenarios during Redis Cache conversion",
+      "Collaborated with cross-functional departments to deliver high-quality solutions",
+      "Created comprehensive documentation for system processes and core applications"
+    ],
+    technologies: ["Redis", "JavaScript", "Load Testing", "Documentation"]
+  },
+  {
+    title: "Senior Software Engineer",
+    company: "Red Cedar Enterprises",
+    period: { start: "2021", end: "2022" },
+    description: "Full-Stack development with Angular and PostgreSQL",
+    highlights: [
+      "Led development of Angular Material UI with Kendo UI Components to enhance user experience",
+      "Optimized database performance by refactoring SQL procedures using LINQ during PostgreSQL migration",
+      "Mentored junior developers in feature design and implementation best practices"
+    ],
+    technologies: ["Angular", "Kendo UI", "PostgreSQL", "LINQ"]
+  },
+  {
+    title: "Software Engineer",
+    company: "Ameren",
+    period: { start: "2019", end: "2020" },
+    description: "Interface testing and geospatial data management",
+    highlights: [
+      "Conducted comprehensive testing of interfaces and SOAP services to ensure system reliability",
+      "Managed and organized geospatial data using ArcGIS and ArcMap platforms",
+      "Implemented quality control processes for data management workflows"
+    ],
+    technologies: ["SOAP", "ArcGIS", "ArcMap", "QA Testing"]
+  }
+];
+---
+
+<div class="divide-y divide-gray-800">
+  {experience.map(role => (
+    <TimelineItem {...role} />
+  ))}
+</div>

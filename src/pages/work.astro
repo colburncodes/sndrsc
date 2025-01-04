@@ -1,0 +1,32 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Container from '../components/ui/Container.astro';
+import Timeline from '../components/work/Timeline.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={`Work • ${SITE_TITLE}`} description="Professional experience and projects" />
+  </head>
+  <body>
+    <Header />
+    <main class="pt-24 pb-16">
+      <Container>
+        <div class="space-y-8">
+          <div>
+            <h1 class="text-4xl font-bold text-gray-100">Work</h1>
+            <p class="mt-4 text-gray-400 max-w-xl">
+              Building scalable systems and collaborating with engineering teams. 
+              Focused on distributed systems, performance optimization, and developer experience.
+            </p>
+          </div>
+
+          <Timeline />
+        </div>
+      </Container>
+    </main>
+  </body>
+</html>

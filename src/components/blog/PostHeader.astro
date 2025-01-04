@@ -1,0 +1,38 @@
+---
+import PostDate from './PostDate.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+}
+
+const { title, description, pubDate, updatedDate } = Astro.props;
+---
+
+<header class="mb-16 relative">
+  <div class="space-y-4">
+    <div class="flex items-center gap-4">
+      <PostDate date={pubDate} />
+      {updatedDate && (
+        <>
+          <span class="text-white/10">•</span>
+          <span class="text-sm text-white/30">
+            Updated <PostDate date={updatedDate} />
+          </span>
+        </>
+      )}
+    </div>
+    
+    <h1 class="text-4xl font-bold text-white leading-tight">
+      {title}
+    </h1>
+    
+    {description && (
+      <p class="text-lg text-white/60 max-w-2xl">
+        {description}
+      </p>
+    )}
+  </div>
+</header>

@@ -1,0 +1,15 @@
+---
+interface Props {
+  title: string;
+  slug: string;
+}
+
+const { title, slug } = Astro.props;
+---
+
+<a 
+  href={`/blog/${slug}`}
+  class="text-white/80 group-hover:text-white transition-colors line-clamp-1"
+>
+  {title}
+</a>

@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import PostDate from './PostDate.astro';
+import PostLink from './PostLink.astro';
+import YearDivider from './YearDivider.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// Group posts by year
+const postsByYear = posts.reduce((acc, post) => {
+  const year = post.data.pubDate.getFullYear();
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+  acc[year].push(post);
+  return acc;
+}, {} as Record<number, typeof posts>);
+
+const years = Object.keys(postsByYear).map(Number).sort((a, b) => b - a);
+---
+
+<div class="space-y-16 animate-fade-up">
+  {years.map((year) => (
+    <section>
+      <YearDivider year={year} />
+      <ul class="mt-8 space-y-6">
+        {postsByYear[year].map((post) => (
+          <li class="group">
+            <article class="flex items-baseline py-2 -mx-4 px-4 rounded-lg hover:bg-white/5 transition-colors">
+              <PostDate date={post.data.pubDate} />
+              <span class="mx-6 text-white/10">•</span>
+              <PostLink title={post.data.title} slug={post.slug} />
+            </article>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+</div>

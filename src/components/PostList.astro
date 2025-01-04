@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+function formatDate(date: Date) {
+  return `${date.getFullYear()} • ${String(date.getMonth() + 1).padStart(2, '0')}`;
+}
+---
+
+<ul class="space-y-6 animate-fade-up">
+  {posts.map((post) => (
+    <li class="group">
+      <a href={`/blog/${post.slug}`} 
+         class="flex items-baseline py-2 -mx-4 px-4 rounded-lg hover:bg-white/5 transition-colors">
+        <span class="w-24 flex-shrink-0 text-sm text-white/30">{formatDate(post.data.pubDate)}</span>
+        <span class="text-white/80 group-hover:text-white transition-colors">
+          {post.data.title}
+        </span>
+      </a>
+    </li>
+  ))}
+</ul>

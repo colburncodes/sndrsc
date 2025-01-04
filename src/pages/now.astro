@@ -1,0 +1,66 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Container from '../components/ui/Container.astro';
+import NowSection from '../components/now/NowSection.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={`Now • ${SITE_TITLE}`} description="What I'm currently focused on" />
+  </head>
+  <body>
+    <Header />
+    <main class="pt-24 pb-16">
+      <Container>
+        <div class="space-y-16 animate-fade-up">
+          <div>
+            <h1 class="text-4xl font-bold text-white">Now</h1>
+            <p class="mt-4 text-white/60">
+              Last updated February 2024 from North Carolina
+            </p>
+          </div>
+
+          <NowSection
+            title="Current Focus"
+            items={[
+              "Building distributed checkout systems at New Balance",
+              "Scaling platform to handle 1M+ daily transactions",
+              "Developing real-time monitoring solutions using Splunk"
+            ]}
+          />
+
+          <NowSection
+            title="Learning"
+            items={[
+              "Deep diving into Rust for systems programming",
+              "Studying distributed systems design patterns",
+              "Reading 'Staff Engineer's Path' by Tanya Reilly"
+            ]}
+          />
+
+          <NowSection
+            title="Building"
+            items={[
+              "Open-source BudAI (50% complete)",
+              "Personal knowledge base in Obsidian and Quip",
+              "Contributing to various OSS projects"
+            ]}
+          />
+
+          <NowSection
+            title="Life"
+            items={[
+              "Training for spring half marathon",
+              "Diving into St. Louis' vibrant startup ecosystem",
+              "Exploring mechanical keyboards"
+            ]}
+          />
+
+        </div>
+      </Container>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+---
+import Button from '../ui/Button.astro';
+---
+
+<footer class="mt-16 pt-8 border-t border-white/10">
+  <div class="flex items-center justify-between">
+    <Button href="/blog" variant="ghost">
+      ← Back to Blog
+    </Button>
+    
+    <div class="flex items-center gap-4">
+      <a 
+        href="https://twitter.com/share?url=https://example.com&text=Check out this post"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-white/40 hover:text-white transition-colors"
+      >
+        Share on Twitter
+      </a>
+    </div>
+  </div>
+</footer>

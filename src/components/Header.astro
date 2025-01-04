@@ -1,0 +1,27 @@
+---
+import { USERNAME } from '../consts';
+import Container from './ui/Container.astro';
+
+const links = [
+  { href: '/work', label: 'Work' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/now', label: 'Now' }
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 h-16 bg-black/80 backdrop-blur-sm border-b border-white/5">
+  <Container class="h-full">
+    <nav class="flex items-center gap-4 h-full text-sm">
+      <a href="/" class="text-white/60 hover:text-white transition-colors">{USERNAME}</a>
+      <span class="text-white/10">:</span>
+      {links.map((link, i) => (
+        <>
+          <a href={link.href} class="text-white/60 hover:text-white transition-colors">
+            {link.label}
+          </a>
+          {i < links.length - 1 && <span class="text-white/10">/</span>}
+        </>
+      ))}
+    </nav>
+  </Container>
+</header>

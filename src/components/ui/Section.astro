@@ -1,0 +1,6 @@
+---
+const { class: className } = Astro.props;
+---
+<section class:list={["py-16 md:py-24", className]}>
+  <slot />
+</section>

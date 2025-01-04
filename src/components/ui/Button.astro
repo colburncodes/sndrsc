@@ -1,0 +1,19 @@
+---
+const { href, variant = 'default', class: className, ...props } = Astro.props;
+
+const variants = {
+  default: 'bg-white/5 hover:bg-white/10 text-white',
+  ghost: 'hover:bg-white/5 text-white/60 hover:text-white'
+};
+---
+<a
+  href={href}
+  class:list={[
+    'inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors',
+    variants[variant],
+    className
+  ]}
+  {...props}
+>
+  <slot />
+</a>
