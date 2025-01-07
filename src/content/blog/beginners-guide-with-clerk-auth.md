@@ -7,7 +7,7 @@ heroImage: '/blog-placeholder-3.jpg'
 
 # Getting Started with Next.js Authentication Using Clerk
 
-Authenticatin is a crucial aspect of modern development, but implementing it securely can be challenging.
+Authentication is a crucial aspect of modern development, but implementing it securely can be challenging.
 Here is Clerk - a powerful authentication and user management solution that seamlessly integrates with Next.js.
 In this guide, I walk through setting up Clerk in a Next.js application and explore its key features.
 
@@ -59,7 +59,7 @@ CLERK_SECRET_KEY=...
 ```
 
 ### 3. Wrap `clerkMiddlware()` to your app
-`clerkMiddleware()` grants you access to user authentication state throughyou your app, on any route or page.
+`clerkMiddleware()` grants you access to user authentication state throughout your app, on any route or page.
 It also allows you to protect specific routes from unauthenticated users.
 
 1. Create a `middleware.ts` file.
