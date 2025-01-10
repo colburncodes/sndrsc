@@ -136,7 +136,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 ```
 
 ### Next Steps 
-Now that you have a solid found for authentication in your Next.js application,
+Now that you have a solid foundation for authentication in your Next.js application,
 consider exploring
 
 1. **Custom Styling**: Customize Clerk components to match your brand
